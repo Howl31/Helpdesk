@@ -1,0 +1,23 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <br><br>
+    <h4 class="text-center">Edit Query</h4>
+    <br>
+    <div>
+        {% for message in messages %}
+        <h6 class="text-center font-weight-normal"><mark style="color: orange;">{{ message }}</mark></h6>
+        {% endfor %}
+    </div>
+    <br>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="save btn btn-default btn-outline-dark">Save</button>
+    </form>
+</div>
+
+{% endblock %}

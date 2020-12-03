@@ -1,0 +1,23 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+<br>
+<div class="container" style="margin-top:50px">
+    <h2 class="text-center font-weight-bold" style="color:#06C476">Feedback page</h2>
+    <br>
+     <div>
+        {% for message in messages %}
+        <h6 class="text-center font-weight-normal"><mark style="color: red;">{{ message }}</mark></h6>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <form method="POST" class="post-form container-fluid">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="save btn btn-default btn-outline-dark">Save</button>
+    </form>
+</div>
+
+{% endblock %}
